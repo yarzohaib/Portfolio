@@ -1,7 +1,18 @@
+"use client"
+
 import { Github, Linkedin, Mail } from "lucide-react"
 import Image from "next/image"
 
 export default function Hero() {
+  const handleDownloadCV = () => {
+    const link = document.createElement("a")
+    link.href = "/Zohaib-Resume.pdf"
+    link.download = "Zohaib-Resume.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   return (
     <section id="home" className="bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
@@ -15,8 +26,8 @@ export default function Hero() {
             <h2 className="text-3xl md:text-3xl font-medium font-serif text-orange-500 mb-6">Software Engineer</h2>
 
             <p className="text-gray-600 text-base md:text-lg mb-8 leading-relaxed max-w-lg">
-              Passionate about building modern, user-friendly web and mobile applications with Next.js, Flutter and Unity.
-              Currently studying at COMSATS University Lahore.
+              Passionate about building modern, user-friendly web and mobile applications with Next.js, Flutter and
+              Unity. Currently studying at COMSATS University Lahore.
             </p>
 
             {/* Social Links */}
@@ -56,18 +67,18 @@ export default function Hero() {
               >
                 View My Work
               </a>
-              <a
-                href="#contact"
-                className="border-2 border-gray-300 text-orange-500 px-8 py-3 rounded-lg hover:border-primary hover:text-primary transition font-semibold"
+              <button
+                onClick={handleDownloadCV}
+                className="border-2 border-gray-300 text-orange-500 px-8 py-3 rounded-lg hover:border-orange-500 hover:text-orange-500 transition font-semibold cursor-pointer"
               >
                 Download CV
-              </a>
+              </button>
             </div>
           </div>
 
           <div className="flex-1 flex items-center justify-center">
             <div className="relative w-80 h-80 md:w-96 md:h-96">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full" />
+              <div className="absolute inset-0 bg-linear-to-br from-gray-100 to-gray-200 rounded-full" />
               <Image
                 src="/profile-hero.jpg"
                 alt="Muhammad Zohaib"
