@@ -1,16 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const geist = Geist({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Muhammad Zohaib - Software Engineer Portfolio",
   description:
-    "Portfolio of Muhammad Zohaib, a Software Engineering student specializing in Next.js and Flutter development.",
+    "Portfolio of Muhammad Zohaib, a Software Engineer specialized in Next.js and Flutter development.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -37,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
+    <html lang="en" className="dark scroll-smooth">
+      <body className={`${geist.className} antialiased`}>
         {children}
         <Analytics />
       </body>

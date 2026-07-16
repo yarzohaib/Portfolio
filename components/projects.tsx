@@ -1,4 +1,6 @@
 import ProjectCard from "./project-card"
+import DomaFeaturedCard from "./doma-featured-card"
+import SectionFadeIn from "./section-fade-in"
 import { Globe, Zap, ListTodo, Smartphone, Brain, Gamepad2, Cable as Cube } from "lucide-react"
 
 const projects = [
@@ -81,17 +83,26 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          A selection of my recent work showcasing expertise in{" "}
-          <span className="text-orange-500 font-semibold">web, mobile, game, and AR development</span>
-        </p>
-      </div>
+      <SectionFadeIn>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">Featured Projects</h2>
+          <div className="h-1 w-14 rounded-full bg-linear-to-r from-orange-500 to-amber-400 mx-auto mb-4" />
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            A selection of my recent work showcasing expertise in{" "}
+            <span className="text-orange-500 font-semibold">web, mobile, game, and AR development</span>
+          </p>
+        </div>
+      </SectionFadeIn>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+      <SectionFadeIn delay={0.1}>
+        <DomaFeaturedCard />
+      </SectionFadeIn>
+
+      <div className="grid md:grid-cols-2 gap-6">
+        {projects.map((project, i) => (
+          <SectionFadeIn key={project.id} delay={0.05 * (i % 2)}>
+            <ProjectCard project={project} />
+          </SectionFadeIn>
         ))}
       </div>
     </section>
